@@ -4,7 +4,7 @@
 ;Car to take the first cell, cdr for the rest, and append to combine
 
 > (define (reverse-general L)
-    map(if (null? L) '();If list is null...
+    (if (null? L) '();If list is null...
         (append (reverse-general (cdr L)) ;Retrieves everything after first cell
                 (list (car L))))) ;Retrieves first cell
 
@@ -15,7 +15,11 @@
 > (define (sum-up-numbers-simple L)
     (if (null? L) 0) ;Checks if list is empty, if so 0
         (if (number? (car L)) ;Checking if element is a num
-            (sum-up-numbers-simple (cdr L)
             (+ (car L) ;Add element
-               (sum-up-numbers-simple (cdr L)))))) ;Perform procedure again until list is empty
+               (sum-up-numbers-simple (cdr L))))) ;Perform procedure again until list is empty
+> (define (is-num L)
+    (if (null? L) 0) ;Checks if list is empty
+    (if (num? (car L) '())
+        L))
+    
 > (sum-up-numbers-simple '(4 5 6 7))

@@ -8,14 +8,13 @@
         (append (reverse-general (cdr L)) ;Retrieves everything after first cell
                 (list (car L))))) ;Retrieves first cell
 
-> (reverse-general '(1 (2 3) (4 (a (b (c d))))))
-
 ;Implementation of number list
 > (define (is-num L)
     (cond ((null? L) '())
           ((number? (car L)) (cons (append (car L))
                              (is-num(cdr L))))
           (else (is-num (cdr L)))))
+
 ;2
 ;While numlist is not null and if the atom is a num add
 > (define (sum-up-numbers-simple L)
@@ -27,10 +26,16 @@
 
 ;(sum-up-numbers-simple '(300 400 500))
 
-;4
-(define (min-above-min L1 L2)
-  (let ((x min(is-num L1))))
-  (let ((y min(is-num L2))))
-  (equal? x  y) x)
+;Modification of 2
+;3
+(define (sum-up-numbers-general L)
+  (cond ((null? L)0)
+        ((number? (car L))(+(car L)(sum-up-numbers-general(cdr L))))
+                          ((list? (car L))
+                           (+ (sum-up-numbers-general L))(sum-up-numbers-general(cdr L)))
+                          (else(+(sum-up-numbers-general(cdr L))))))
 
-(min-above-min '(2 4 5) '(5 4 3))
+
+;4
+;Was planning on using the is-num function above and creating a function to extract the
+;smallest number of both lists since 'min' does not work

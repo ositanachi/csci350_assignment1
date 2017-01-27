@@ -12,14 +12,15 @@
 
 ;2
 ;While numlist is not null and if the atom is a num add
-> (define (sum-up-numbers-simple L)
-    (if (null? L) 0) ;Checks if list is empty, if so 0
-        (if (number? (car L)) ;Checking if element is a num
-            (+ (car L) ;Add element
-               (sum-up-numbers-simple (cdr L))))) ;Perform procedure again until list is empty
+;> (define (sum-up-numbers-simple L)
+;    (if (null? L) 0) ;Checks if list is empty, if so 0
+;        (if (number? (car L)) ;Checking if element is a num
+;            (+ (car L) ;Add element
+;               (sum-up-numbers-simple (cdr L))))) ;Perform procedure again until list is empty
 > (define (is-num L)
-    (if (null? L) 0) ;Checks if list is empty
-    (if (num? (car L) '())
-        L))
+    (cond ((null? L) 0)
+          ((number? (car L)) (car L))
+          (else (is-num (cdr L)))))
     
-> (sum-up-numbers-simple '(4 5 6 7))
+;> (sum-up-numbers-simple '(4 5 6 7))
+> (is-num '(a 5 w 8 6))

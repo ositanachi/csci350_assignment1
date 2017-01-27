@@ -29,4 +29,8 @@
 
 ;4
 (define (min-above-min L1 L2)
-  (cond ((nul? L1) #f) ((null? l2)
+  (let ((x min(is-num L1))))
+  (let ((y min(is-num L2))))
+  (equal? x  y) x)
+
+(min-above-min '(2 4 5) '(5 4 3))

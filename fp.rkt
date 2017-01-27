@@ -19,7 +19,7 @@
 ;               (sum-up-numbers-simple (cdr L))))) ;Perform procedure again until list is empty
 
 > (define (is-num L)
-    (cond ((null? L) 0)
+    (cond ((null? L) '())
           ((number? (car L)) (cons (append (car L))
                              (is-num(cdr L))))
           (else (is-num (cdr L)))))

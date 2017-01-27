@@ -13,6 +13,7 @@
 ;2
 ;While numlist is not null and if the atom is a num add
 > (define (sum-up-numbers-simple L)
-    (if (null? numlist) 0
-        (+ (car numlist)
+    (if (null? L) 0
+        (+ (car L)
            (sum-up-numbers-simple (cdr L)))))
+> (sum-up-numbers-simple '(4 5 6 7))

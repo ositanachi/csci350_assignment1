@@ -4,13 +4,8 @@
 
 > (define (reverse-general L)
     (if (null? L)
+        '()
         (append (reverse-general (cdr L))
-                (cons ((car L)
-                )
-        )
-        )
-        )
-    )
+                (list (car L)))))
 
-
-> (reverse-general '(5 a b 3))
+> (reverse-general '(5 a b (5 (3)) 3))

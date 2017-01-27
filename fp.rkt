@@ -20,10 +20,11 @@
 ;While numlist is not null and if the atom is a num add
 > (define (sum-up-numbers-simple L)
     (cond ((null? L) 0) ;Checks if list is empty, if so 0
-          (list? L) (+ (sum-up-numbers-simple L (car L)) (sum-up-numbers-simple (cdr L))
-              (+ (car L) (sum-up-numbers-simple (cdr L))))
+          ((not ((list? L)) 0)) ;Checks if it is in fact a list
+          ((not (number? (car L))) (sum (cdr L)))
+          (else (+ ((sum-up-numbers-simple (car L)) ( (sum-up-numbers-simple L (car L)) (sum-up-numbers-simple (cdr L))
+              (+ (car L) (sum-up-numbers-simple (cdr L)))))))))
           ;(sum-up-numbers-simple L(((is-num(L)))))
-          (else 0)))
 
 
-sum-up-numbers-simple '((a 100 b (200) c 300 d))
+sum-up-numbers-simple '(300 400 500)

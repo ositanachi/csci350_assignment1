@@ -17,11 +17,13 @@
 ;        (if (number? (car L)) ;Checking if element is a num
 ;            (+ (car L) ;Add element
 ;               (sum-up-numbers-simple (cdr L))))) ;Perform procedure again until list is empty
+
 > (define (is-num L)
     (cond ((null? L) 0)
-          ((number? (car L)) (append (car L))
-                             (cdr L))
+          ((number? (car L)) (cons (append (car L))
+                             (is-num(cdr L))))
           (else (is-num (cdr L)))))
+
     
 ;> (sum-up-numbers-simple '(4 5 6 7))
-> (is-num '(a  w 5 6))
+> (is-num '(a 7 5 w 5 6 5))

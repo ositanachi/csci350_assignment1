@@ -29,11 +29,12 @@
 ;Modification of 2
 ;3
 (define (sum-up-numbers-general L)
-  (cond ((null? L)0)
-        ((number? (car L))(+(car L)(sum-up-numbers-general(cdr L))))
-                          ((list? (car L))
+  (cond ((null? L)0) ;Check if list is not empty
+        ((number? (car L))(+(car L)(sum-up-numbers-general(cdr L)))) ;If it's a num... 
+                          ((list? (car L)) ;If it is a list, take first element/cell
+                           ;Recursion
                            (+ (sum-up-numbers-general L))(sum-up-numbers-general(cdr L)))
-                          (else(+(sum-up-numbers-general(cdr L))))))
+                          (else(+(sum-up-numbers-general(cdr L)))))) ;Sum it otherwise
 
 
 ;4
